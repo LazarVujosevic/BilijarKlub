@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Rezervacija">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StoId" Type="Int32" Nullable="false" />
+    <Property Name="PocetakTermina" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="KrajTermina" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="Sto" Relationship="Self.FK__Rezervaci__StoId__3D5E1FD2" FromRole="Rezervacija" ToRole="Sto" />
+  </EntityType>
+  <EntityType Name="Sto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naziv" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Rezervacijas" Relationship="Self.FK__Rezervaci__StoId__3D5E1FD2" FromRole="Sto" ToRole="Rezervacija" />
+  </EntityType>
+  <Association Name="FK__Rezervaci__StoId__3D5E1FD2">
+    <End Role="Sto" Type="Self.Sto" Multiplicity="1" />
+    <End Role="Rezervacija" Type="Self.Rezervacija" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rezervacija">
+        <PropertyRef Name="StoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DefaultConnection" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Rezervacijas" EntityType="Self.Rezervacija" />
+    <EntitySet Name="Stoes" EntityType="Self.Sto" />
+    <AssociationSet Name="FK__Rezervaci__StoId__3D5E1FD2" Association="Self.FK__Rezervaci__StoId__3D5E1FD2">
+      <End Role="Sto" EntitySet="Stoes" />
+      <End Role="Rezervacija" EntitySet="Rezervacijas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
