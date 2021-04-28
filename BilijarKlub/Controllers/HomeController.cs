@@ -1,4 +1,6 @@
-﻿using BilijarKlub.Models;
+﻿using BilijarKlub.Hubs;
+using BilijarKlub.Models;
+using Microsoft.AspNet.SignalR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +9,7 @@ using System.Web.Mvc;
 
 namespace BilijarKlub.Controllers
 {
-    [Authorize]
+    [System.Web.Mvc.Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -59,17 +61,18 @@ namespace BilijarKlub.Controllers
             return this.RedirectToAction("Index");
         }
 
-        [Authorize(Roles = "Zaposleni")]
+        [System.Web.Mvc.Authorize(Roles = "Zaposleni")]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
+            
             var rezervacijaList = new  List<RezervacijaViewModel>();
 
             var rezervacijaViewModel = new RezervacijaViewModel();
 
             rezervacijaList = rezervacijaViewModel.GetRezervacija();
-
+            //var hubContext = GlobalHost.ConnectionManager.GetHubContext<RezervacijaHub>();
+            //hubContext.Clients.All.NewRezervacija(rezervacijaViewModel);
             return View(rezervacijaList);
         }
 

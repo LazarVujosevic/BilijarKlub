@@ -230,5 +230,9 @@ C:\Projekti\BilijarKlub\BilijarKlub\obj\Debug\BilijarKlub.csproj.CoreCompileInpu
 C:\Projekti\BilijarKlub\BilijarKlub\obj\Debug\BilijarKlub.csproj.CopyComplete
 C:\Projekti\BilijarKlub\BilijarKlub\obj\Debug\BilijarKlub.dll
 C:\Projekti\BilijarKlub\BilijarKlub\obj\Debug\BilijarKlub.pdb
-C:\Projekti\BilijarKlub\BilijarKlub\bin\aspnet-BilijarKlub-20210426104631.mdf
-C:\Projekti\BilijarKlub\BilijarKlub\bin\aspnet-BilijarKlub-20210426104631_log.ldf
+C:\Projekti\BilijarKlub\BilijarKlub\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Projekti\BilijarKlub\BilijarKlub\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Projekti\BilijarKlub\BilijarKlub\bin\Microsoft.AspNet.SignalR.Core.pdb
+C:\Projekti\BilijarKlub\BilijarKlub\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Projekti\BilijarKlub\BilijarKlub\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
+C:\Projekti\BilijarKlub\BilijarKlub\bin\Microsoft.AspNet.SignalR.SystemWeb.xml

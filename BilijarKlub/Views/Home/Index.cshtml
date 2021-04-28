@@ -88,6 +88,8 @@
     }
 
     <button type="submit" id="submitButton">Sacuvaj</button>
+    <button id="callSignalButton" hidden></button>
+    <ul id="testLabel"></ul>
 }
 
 
@@ -118,7 +120,17 @@
             <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
         </div>
     </div>*@
-<script src="/jquery.js"></script>
-<script src="/build/jquery.datetimepicker.full.min.js"></script>
-<script src="~/Content/Index.js"></script>
+
+
+<script>
+    function pozoviSignalDugme() {
+        document.getElementById('callSignalButton').click();
+    }
+</script>
+@section scripts{
+
+    <script src="~/Scripts/jquery.signalR-2.4.1.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script src="~/Scripts/termini.js"></script>
+}
 
