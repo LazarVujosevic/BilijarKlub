@@ -21,7 +21,7 @@ namespace DataAccessLayer
             this._context.Database.ExecuteSqlCommand($"INSERT INTO {tableName} VALUES ({values})");
         }
 
-        public dynamic Get(object objectForGet, DateTime? pocetakTermina = null, DateTime? krajTermina = null)
+        public dynamic Get(object objectForGet, string whereClause = null)
         {
             if (objectForGet is Sto)
             {
@@ -31,14 +31,7 @@ namespace DataAccessLayer
 
             if (objectForGet is Rezervacija)
             {
-                if (pocetakTermina == null || krajTermina == null)
-                {
-                    return this._context.Rezervacijas.ToList();
-                }
-                else
-                {
-                    return this._context.Rezervacijas.ToList();
-                }
+                return this._context.Rezervacijas.SqlQuery($"SELECT * FROM dbo.[Rezervacija] {whereClause}").ToList();
             }
             return null;
         }

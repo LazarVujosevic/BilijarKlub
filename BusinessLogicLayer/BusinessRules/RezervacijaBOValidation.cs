@@ -12,15 +12,19 @@ namespace BusinessLogicLayer.BusinessRules
     {
         public RezervacijaBOValidation()
         {
-            RuleFor(x => x.PocetakTermina).Must(TerminNijeZauzet).WithMessage("Zeljeni tremin za navedeni sto je zauzet.");
+            RuleFor(x => x.StoId).Must(TerminNijeZauzet).WithMessage("Zeljeni tremin za navedeni sto je zauzet.");
         }
 
-        private bool TerminNijeZauzet(RezervacijaBO rezervacijaBO, DateTime aa)
+        private bool TerminNijeZauzet(RezervacijaBO rezervacijaBO, int stoId)
         {
-            var rezervacije = rezervacijaBO.GetRezervacija();
+            var rezervacije = rezervacijaBO.GetRezervacija(stoId, rezervacijaBO.PocetakTermina, rezervacijaBO.KrajTermina);
 
-            //var a = rezervacije.Where()
-            return false;
+            if (rezervacije?.Count > 0)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

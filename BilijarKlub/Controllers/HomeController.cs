@@ -64,16 +64,13 @@ namespace BilijarKlub.Controllers
         {
             ViewBag.Message = "Your application description page.";
 
-            var stoViewModel = new StoViewModel();
+            var rezervacijaList = new  List<RezervacijaViewModel>();
 
-            //for (int i = 1; i <= 5; i++)
-            //{
-            //    stoViewModel.InsertSto(new StoViewModel { Naziv = $"Sto {i}", Opis = $"Opis stola {i}", IsDeleted = false });
-            //}
+            var rezervacijaViewModel = new RezervacijaViewModel();
 
-            stoViewModel.GetStolova();
+            rezervacijaList = rezervacijaViewModel.GetRezervacija();
 
-            return View();
+            return View(rezervacijaList);
         }
 
         public ActionResult Contact()

@@ -13,9 +13,9 @@ namespace BusinessLogicLayer.BusinessObjects
 
         public string Opis { get; set; }
 
-        public void InsertSto(StoBO sto)
+        public void InsertSto(StoBO stoBo)
         {
-            this.entity.Insert("dbo.Sto", $"'{sto.Naziv}','{sto.Opis}', 0");
+            this.entity.Insert("dbo.Sto", $"'{stoBo.Naziv}','{stoBo.Opis}', 0");
         }
 
         public List<StoBO> GetStolova()

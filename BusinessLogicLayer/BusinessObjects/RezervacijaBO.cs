@@ -14,6 +14,8 @@ namespace BusinessLogicLayer.BusinessObjects
         public DateTime PocetakTermina { get; set; }
         public DateTime KrajTermina { get; set; }
 
+        public string NazivStola { get; set; }
+
         public (bool, List<string>) InsertRezervacija(RezervacijaBO rezervacijaBO)
         {
             RezervacijaBOValidation validator = new RezervacijaBOValidation();
@@ -30,13 +32,23 @@ namespace BusinessLogicLayer.BusinessObjects
 
                 return (false, errorsList);
             }
+            else
+            {
+                this.entity.Insert("dbo.Rezervacija", $"'{rezervacijaBO.StoId}','{rezervacijaBO.PocetakTermina}', '{rezervacijaBO.KrajTermina}'");
+            }
 
             return (true, new List<string>());
         }
 
-        public List<RezervacijaBO> GetRezervacija()
+        public List<RezervacijaBO> GetRezervacija(int? stoId = null,DateTime? pocetakTermina = null, DateTime? krajTermina = null)
         {
-            var rezervacijaEntityList = (List<Rezervacija>)this.entity.Get(new Rezervacija());
+            string whereClause = string.Empty;
+
+            if (stoId != null && pocetakTermina != null && krajTermina != null)
+            {
+                whereClause = $"WHERE StoId = {stoId} AND ((PocetakTermina <= '{pocetakTermina}' AND KrajTermina >= '{pocetakTermina}') OR (PocetakTermina <= '{krajTermina}' AND KrajTermina >= '{krajTermina}'))";
+            }
+            var rezervacijaEntityList = (List<Rezervacija>)this.entity.Get(new Rezervacija(), whereClause);
 
             var rezervacijaBoList = new List<RezervacijaBO>();
 
@@ -44,7 +56,7 @@ namespace BusinessLogicLayer.BusinessObjects
             {
                 foreach (var rezervacijaEntity in rezervacijaEntityList)
                 {
-                    rezervacijaBoList.Add(new RezervacijaBO { Id = rezervacijaEntity.Id, PocetakTermina = rezervacijaEntity.PocetakTermina, KrajTermina = rezervacijaEntity.KrajTermina });
+                    rezervacijaBoList.Add(new RezervacijaBO { StoId = rezervacijaEntity.StoId, PocetakTermina = rezervacijaEntity.PocetakTermina, KrajTermina = rezervacijaEntity.KrajTermina, NazivStola = rezervacijaEntity.Sto.Naziv });
                 }
 
                 return rezervacijaBoList;

@@ -1,7 +1,17 @@
-﻿@{
-    ViewBag.Title = "About";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
-
-<p>Use this area to provide additional information.</p>
+﻿@model List<BilijarKlub.Models.RezervacijaViewModel>
+<h2>Pregled rezervacija</h2>
+<table class="table table-hover">
+    <tr>
+        <th>Sto</th>
+        <th>Pocetak termina</th>
+        <th>Kraj termina</th>
+    </tr>
+    @foreach (var rezervacija in Model)
+    {
+        <tr>
+            <td>@rezervacija.NazivStola</td>
+            <td>@rezervacija.PocetakTermina</td>
+            <td>@rezervacija.KrajTermina</td>
+        </tr>
+    }
+</table>

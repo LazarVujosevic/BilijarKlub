@@ -22,15 +22,16 @@ namespace BilijarKlub.Models
 
         private RezervacijaBO _rezervacijaBO { get; set; }
 
+        public string NazivStola { get; set; }
+
         public RezervacijaViewModel()
         {
-
+            this._rezervacijaBO = new RezervacijaBO();
         }
-        public RezervacijaViewModel(DateTime pocetakTermina, DateTime krajTermina)
+        public RezervacijaViewModel(DateTime pocetakTermina, DateTime krajTermina) : this()
         {
             this.PocetakTermina = pocetakTermina;
-            this.KrajTermina = krajTermina;
-            this._rezervacijaBO = new RezervacijaBO();
+            this.KrajTermina = krajTermina;            
         }
 
         #region Validation Rules
@@ -98,6 +99,23 @@ namespace BilijarKlub.Models
             }
 
             return (true, true, new List<string>());
+        }
+
+        public List<RezervacijaViewModel> GetRezervacija()
+        {
+            var rezervacijaBoList = this._rezervacijaBO.GetRezervacija();
+
+            var rezervacijaViewModelList = new List<RezervacijaViewModel>();
+
+            if (rezervacijaBoList?.Count > 0)
+            {
+                foreach (var rezervacijaBo in rezervacijaBoList)
+                {
+                    rezervacijaViewModelList.Add(new RezervacijaViewModel { Id = rezervacijaBo.Id, StoId = rezervacijaBo.StoId, PocetakTermina = rezervacijaBo.PocetakTermina, KrajTermina = rezervacijaBo.KrajTermina, NazivStola = rezervacijaBo.NazivStola });
+                }
+            }
+
+            return rezervacijaViewModelList;
         }
 
         private class ValidateViewModel : IValidatableObject
