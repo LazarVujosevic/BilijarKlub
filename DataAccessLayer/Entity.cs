@@ -25,7 +25,7 @@ namespace DataAccessLayer
         {
             if (objectForGet is Sto)
             {
-                return this._context.Stoes.ToList();
+                return this._context.Stoes.Where(x => x.IsDeleted == false).ToList();
             }
 
 

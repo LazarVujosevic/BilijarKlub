@@ -54,7 +54,7 @@ namespace BilijarKlub.Controllers
         }
 
         [System.Web.Mvc.Authorize(Roles = "Zaposleni")]
-        public ActionResult About()
+        public ActionResult Rezervacije()
         {
             ViewBag.Message = "Your application description page.";
             

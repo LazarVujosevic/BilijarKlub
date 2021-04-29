@@ -48,7 +48,6 @@
     <Compile Include="BusinessObjects\RezervacijaBO.cs" />
     <Compile Include="BusinessObjects\StoBO.cs" />
     <Compile Include="BusinessRules\RezervacijaBOValidation.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

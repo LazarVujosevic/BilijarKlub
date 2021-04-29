@@ -357,3 +357,5 @@ C:\Projs\BilijarKlub\BilijarKlub\obj\Debug\BilijarKlub.csproj.CoreCompileInputs.
 C:\Projs\BilijarKlub\BilijarKlub\obj\Debug\BilijarKlub.csproj.CopyComplete
 C:\Projs\BilijarKlub\BilijarKlub\obj\Debug\BilijarKlub.dll
 C:\Projs\BilijarKlub\BilijarKlub\obj\Debug\BilijarKlub.pdb
+C:\Projs\BilijarKlub\BilijarKlub\bin\aspnet-BilijarKlub-20210426104631.mdf
+C:\Projs\BilijarKlub\BilijarKlub\bin\aspnet-BilijarKlub-20210426104631_log.ldf
