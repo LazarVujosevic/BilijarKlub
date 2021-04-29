@@ -35,18 +35,6 @@ namespace BilijarKlub.Controllers
 
             var rezervacija = new RezervacijaViewModel((DateTime)model.Rezervacija.PocetakTermina, (DateTime)model.Rezervacija.KrajTermina);
 
-            //var isViewModelValid = rezervacija.Validate();
-
-            //if (!isViewModelValid.Item1 && isViewModelValid.Item2.Count() > 0)
-            //{
-            //    foreach (var item in isViewModelValid.Item2)
-            //    {
-            //        model.Rezervacija.ValidationRulesMessages.Add(item);
-            //    }
-
-            //    return View(model);
-            //}
-
             var saveResult = rezervacija.InsertRezervacija(model.Rezervacija);
 
             if (!saveResult.Item1 && saveResult.Item3.Count() > 0)
@@ -58,6 +46,10 @@ namespace BilijarKlub.Controllers
 
                 return View(model);
             }
+
+            model.Rezervacija.NazivStola = model.Stolovi.Where(x => x.Id == model.Rezervacija.StoId).Select(a => a.Naziv).FirstOrDefault();
+            var context = GlobalHost.ConnectionManager.GetHubContext<RezervacijaHub>();
+            context.Clients.All.dodajRezervaciju(model.Rezervacija.NazivStola, model.Rezervacija.PocetakTermina?.ToString("M/d/yyyy H:mm:ss tt"), model.Rezervacija.KrajTermina?.ToString("M/d/yyyy H:mm:ss tt"));
             return this.RedirectToAction("Index");
         }
 
@@ -71,8 +63,6 @@ namespace BilijarKlub.Controllers
             var rezervacijaViewModel = new RezervacijaViewModel();
 
             rezervacijaList = rezervacijaViewModel.GetRezervacija();
-            //var hubContext = GlobalHost.ConnectionManager.GetHubContext<RezervacijaHub>();
-            //hubContext.Clients.All.NewRezervacija(rezervacijaViewModel);
             return View(rezervacijaList);
         }
 

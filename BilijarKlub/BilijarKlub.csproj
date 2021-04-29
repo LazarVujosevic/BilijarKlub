@@ -180,14 +180,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\RezervacijaHelper.cs" />
     <Compile Include="Hubs\RezervacijaHub.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BaseViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\RezervacijaViewModel.cs" />
-    <Compile Include="Models\UpdateInfo.cs" />
     <Compile Include="Models\ZakazivanjeViewModel.cs" />
     <Compile Include="Models\StoViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

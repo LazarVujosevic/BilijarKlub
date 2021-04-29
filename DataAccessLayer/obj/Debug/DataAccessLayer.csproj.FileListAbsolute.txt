@@ -26,3 +26,17 @@ C:\Projekti\BilijarKlub\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCom
 C:\Projekti\BilijarKlub\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
 C:\Projekti\BilijarKlub\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Projekti\BilijarKlub\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Projs\BilijarKlub\DataAccessLayer\bin\Debug\aspnet-BilijarKlub-20210426104631.mdf
+C:\Projs\BilijarKlub\DataAccessLayer\bin\Debug\aspnet-BilijarKlub-20210426104631_log.ldf
+C:\Projs\BilijarKlub\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Projs\BilijarKlub\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Projs\BilijarKlub\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Projs\BilijarKlub\DataAccessLayer\bin\Debug\EntityFramework.dll
+C:\Projs\BilijarKlub\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Projs\BilijarKlub\DataAccessLayer\bin\Debug\EntityFramework.xml
+C:\Projs\BilijarKlub\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Projs\BilijarKlub\DataAccessLayer\obj\Debug\DataAccessLayer.csprojAssemblyReference.cache
+C:\Projs\BilijarKlub\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Projs\BilijarKlub\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
+C:\Projs\BilijarKlub\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Projs\BilijarKlub\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
